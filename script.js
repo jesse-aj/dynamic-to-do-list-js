@@ -12,7 +12,7 @@ if(savedTasks) {
 
     tasksArray.forEach(function (tasksText){
         const li = document.createElement("li");
-        li.textContent = taskText;
+        li.textContent = tasksText;
         taskList.appendChild(li);
     });
 }
@@ -34,21 +34,27 @@ listItem.textContent = taskText;
 //This also creates a new remove button and give it a name and a style
 const removeButton = document.createElement("button");
 removeButton.textContent = "Remove";
-removeButton.classList.add = "remove-btn";
+removeButton.classList.add("remove-btn");
 
 //A function : This shows when a the remove button is clicked it should remove <li> from the list
 removeButton.onclick = function() {
     taskList.removeChild(listItem);
 };
 
-// Appent the remove button to the <li> : this adds a remove button to the list after a task has been added
+
+// Append the remove button to the <li> : this adds a remove button to the list after a task has been added
  listItem.appendChild(removeButton);
+
+  //remove from local storage
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+tasks = tasks.filter(task => task !== taskText);
+localStorage.setItem("tasks", JSON.stringify(tasks));
 
  //This adds the whole <li> : which now includes the button into the <ul> called taskList.
 
 taskList.appendChild(listItem);
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
 tasks.push(taskText);
 localStorage.setItem("tasks", JSON.stringify(tasks));
 
