@@ -12,24 +12,41 @@ function addTask () {
  }
 }
 
+
+//Created a new element <li> to store and display tasks on the page, it was stored in the taskInput container
+
 const listItem = document.createElement("li");
 listItem.textContent = taskInput;
 
-//This will create a remove button and remove <li> from the list and also provide new space for input task
-
+//This also creates a new remove button and give it a name and a style
 const removeButton = document.createElement("button");
 removeButton.textContent = "Remove";
 removeButton.className = "remove-btn";
+//A function : This shows when a the remove button is clicked it should remove <li> from the list
 removeButton.onclick = function() {
     taskList.removeChild(listItem);
 };
+// Appent the remove button to the <li> : this adds a remove button to the list after a task has been added
+ listItem.appendChild(removeButton);
 
-listItem.appendChild(removeButton);
+ //This adds the whole <li> : which now includes the button into the <ul> called taskList.
+
 taskList.appendChild(listItem);
+
+//This clear the input feild for the next task
 taskInput.value = "";
 
 
 
+//This adds an event listener to the Add task button
+addButton.addEventListener("click", addTask);
+
+//
+taskInput.addEventListener("keypress", function(event){
+    if (event.key === "Enter") {
+        addTask();
+    }
+})
 
 
 
