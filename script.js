@@ -6,17 +6,17 @@ const taskList  =  document.getElementById("task-list");
 
 function addTask () {
 
- const taskInput = taskInput.ariaValueMax.trim();
- if (taskInput === ""){
-    alert("Please enter a task.")
- }
-}
+ const taskText = taskInput.value.trim();
 
+ if (taskText === ""){
+    alert("Please enter a task.");
+    return;
+ }
 
 //Created a new element <li> to store and display tasks on the page, it was stored in the taskInput container
 
 const listItem = document.createElement("li");
-listItem.textContent = taskInput;
+listItem.textContent = taskText;
 
 //This also creates a new remove button and give it a name and a style
 const removeButton = document.createElement("button");
@@ -35,6 +35,7 @@ taskList.appendChild(listItem);
 
 //This clear the input feild for the next task
 taskInput.value = "";
+}
 
 
 
@@ -47,28 +48,6 @@ taskInput.addEventListener("keypress", function(event){
         addTask();
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
