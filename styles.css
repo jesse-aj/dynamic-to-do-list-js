@@ -54,7 +54,7 @@ li {
     align-items: center;
 }
 
-.remove-btn {
+button {
     cursor: pointer;
     background-color: #ff6347;
     color: white;
@@ -63,6 +63,6 @@ li {
     padding: 5px 10px;
 }
 
-.remove-btn:hover {
+button:hover {
     background-color: #d9534f;
 }
