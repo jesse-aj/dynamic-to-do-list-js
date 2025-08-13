@@ -46,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Add the <li> to the task list
         taskList.appendChild(listItem);
     }
+
+    // Call loadTasks when Page loads
+    loadTasks();
      // ==========================
     // FUNCTION: ADD A NEW TASK
     // ==========================
