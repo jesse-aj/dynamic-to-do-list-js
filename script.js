@@ -21,7 +21,7 @@ listItem.textContent = taskText;
 //This also creates a new remove button and give it a name and a style
 const removeButton = document.createElement("button");
 removeButton.textContent = "Remove";
-removeButton.className = "remove-btn";
+removeButton.classList.add = "remove-btn";
 //A function : This shows when a the remove button is clicked it should remove <li> from the list
 removeButton.onclick = function() {
     taskList.removeChild(listItem);
