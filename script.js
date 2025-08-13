@@ -3,6 +3,23 @@ document.addEventListener("DOMContentLoaded", function() {
 const addButton = document.getElementById("add-task-btn");
 const taskInput = document.getElementById("task-input");
 const taskList  =  document.getElementById("task-list");
+ // Loading tasks from localStorage part
+
+ 
+const savedTasks = localStorage.getItem("tasks");
+
+if(savedTasks) {
+    const tasksArray = JSON.parse(savedTasks);
+
+    tasksArray.forEach(function (tasksText){
+        const li = document.createElement("li");
+        li.textContent = taskText;
+        taskList.appendChild(li);
+    });
+}
+
+
+
 
 function addTask () {
 
